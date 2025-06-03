@@ -1,4 +1,4 @@
-//UsersApp.jsx
+//UsersApp.jsx - aca llamo a userList 
 import { useState } from "react"
 import { UserList } from "./UserList"
 
@@ -12,7 +12,7 @@ export const  UsersApp = () => {
 
   return(
     <>
-      <h1>Lista de usuarios:</h1>
+      <h1>Lista de usuarios:(UsersApp.jsx)</h1>
       <UserList endpoint={endpointValor}></UserList>
       <button onClick={handleFetch}>Ver Comentarios</button>
     </>

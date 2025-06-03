@@ -4,9 +4,11 @@ import { FormularioAgregar } from "./FormularioAgregar";
 
 const ItemTernario = ({ id, nombre, activado, onlyTrue }) => {
   return (
+    <>
     <li>
       Id:{id} - {nombre}: {activado ? "TRUE✅" : "FALSE⭕"} {onlyTrue && "- ONLY TRUE⭐"}
     </li>
+    </>
   );
 };
 
@@ -43,6 +45,7 @@ export const Listado = () => {
 
   return (//el map recorre el array LISTA y returnea el ItemTernario que armamos arriba, que puede servir para un carrito de compras
     <>
+    <h1>(Listado.jsx)</h1>
       <ul>
         {lista.map((item) => (<ItemTernario key={item.id} id={item.id} nombre={item.nombre} activado={item.activado} onlyTrue={item.onlyTrue}/>))}
       </ul>
