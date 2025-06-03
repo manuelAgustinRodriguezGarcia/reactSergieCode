@@ -1,0 +1,27 @@
+* {
+  color: #fff;
+}
+
+.title {
+  background-color: blue;
+  color: yellow;
+  padding: 20px;
+}
+
+body {
+  background-color: black;
+}
+
+.boton {
+  background-color: blue;
+  color: yellow;
+  padding: 20px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;  
+  margin: 0 10px;
+}
+
+.inputsAdd {
+  color: black;
+}
