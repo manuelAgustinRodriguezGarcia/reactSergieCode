@@ -4,3 +4,5 @@ export * from './Listado.jsx';
 export * from './UsersApp.jsx';
 export * from './ContadorComponent.jsx'
 export * from './FormComponent.jsx';
+export * from './FetchConHook.jsx';
+export * from './CalculosConUseMemo.jsx';

@@ -1,14 +1,20 @@
 //FormComponent.jsx
+import { useEffect, useRef } from "react"
 import { useForm } from "./hooks/useForm"
 
 export const FormComponent = () => {
 
+  const focusRef = useRef()
+
+  useEffect(()=> {
+    focusRef.current.focus()
+  }, [])
+  
   const initialForm = {
     userName: '',
     email: '',
     password: ''
   }
-
   
   const {formState, userName, email, password, onInputChange} = useForm(initialForm)
       // userName, email y password ya vienen desestructurados desde el useForm.js con el ...formState
@@ -23,6 +29,7 @@ export const FormComponent = () => {
       <div className="mb-3">
         <label htmlFor="userName" className="form-label">User Name</label>
         <input 
+        ref={focusRef}
         type="text" 
         className="form-control" 
         name="userName"

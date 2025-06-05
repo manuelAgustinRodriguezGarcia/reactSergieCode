@@ -1,5 +1,5 @@
 import './styles/App.css'
-import {Titulo, Contador, Listado, ContadorComponent, FormComponent} from './components'
+import {Titulo, Contador, Listado, ContadorComponent, FormComponent, FetchConHook, CalculosConUseMemo} from './components'
 import { UsersApp } from './components/UsersApp'
 
 export const App = ()=> {
@@ -14,6 +14,10 @@ export const App = ()=> {
       <ContadorComponent />
       <hr />
       <FormComponent />
+      <hr />
+      <FetchConHook />
+      <hr />
+      <CalculosConUseMemo />
     </>
   )
 }
