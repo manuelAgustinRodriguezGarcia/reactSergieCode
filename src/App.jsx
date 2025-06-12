@@ -1,6 +1,5 @@
 import './styles/App.css'
-import {Titulo, Contador, Listado, ContadorComponent, FormComponent, FetchConHook, CalculosConUseMemo} from './components'
-import { UsersApp } from './components/UsersApp'
+import {Titulo, Contador, Listado, ReducerComponent,ContadorComponent, FormComponent, FetchConHook, CalculosConUseMemo, UsersApp, CallbackComponent} from './components'
 
 export const App = ()=> {
   return (
@@ -18,6 +17,10 @@ export const App = ()=> {
       <FetchConHook />
       <hr />
       <CalculosConUseMemo />
+      <hr />
+      <CallbackComponent />
+      <hr />
+      <ReducerComponent/>
     </>
   )
 }

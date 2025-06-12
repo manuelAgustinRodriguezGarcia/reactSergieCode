@@ -17,7 +17,7 @@ export const CalculosConUseMemo = () => {
 
   return (//el problema aca es que cada vez que aprete setMostrar, se vuelve a hacer el mismo calculo
     <>
-      <h2>Calculo: {getCalculo(listaNumeros)}</h2>
+      <h2>Calculo con useMemo: {getCalculo(listaNumeros)}</h2>
       <button className="btn btn-primary" onClick={() => setMostrar(!mostrar)}>{mostrar? "Ocultar" : " Mostrar"}</button>
       <button className="btn btn-primary" onClick={() => agregarNumero()}>Agregar numero</button>
     </>

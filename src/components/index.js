@@ -6,3 +6,5 @@ export * from './ContadorComponent.jsx'
 export * from './FormComponent.jsx';
 export * from './FetchConHook.jsx';
 export * from './CalculosConUseMemo.jsx';
+export * from './CallbackComponent.jsx';
+export * from './ReducerComponent.jsx';
