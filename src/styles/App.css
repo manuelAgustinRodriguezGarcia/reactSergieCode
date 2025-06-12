@@ -26,3 +26,11 @@ body {
 .inputsAdd {
   color: black;
 }
+
+.list-group {
+  margin: 15px 0;
+}
+
+.list-group-item span{
+  color: black;
+}
