@@ -33,7 +33,7 @@ export const FormularioAgregar = ({ funcionQuePasoDesdeElPadreAlHijo, nombreNuev
         />
         ONLY TRUE
       </label>
-      <button className="boton" onClick={funcionQuePasoDesdeElPadreAlHijo}>Agregar a la lista</button>
+      <button className="btn btn-primary" onClick={funcionQuePasoDesdeElPadreAlHijo}>Agregar a la lista</button>
     </>
   );
 };

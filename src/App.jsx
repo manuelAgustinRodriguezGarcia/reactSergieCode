@@ -1,26 +1,20 @@
 import './styles/App.css'
-import {Titulo, Contador, Listado, ReducerComponent,ContadorComponent, FormComponent, FetchConHook, CalculosConUseMemo, UsersApp, CallbackComponent} from './components'
+import { Contacto, Ajustes, Pago, NavBar } from './components'
+import { Navigate, Route, Routes } from 'react-router'
+import { LandingPage } from './LandingPage'
 
-export const App = ()=> {
+export const App = () => {
   return (
     <>
-      <Titulo title={"React JS"} subtitle={"Sergie Code"}/>
-      <Contador />
-      <Listado />
-      <UsersApp />
-      <hr />
-      <h1>Hooks</h1>
-      <ContadorComponent />
-      <hr />
-      <FormComponent />
-      <hr />
-      <FetchConHook />
-      <hr />
-      <CalculosConUseMemo />
-      <hr />
-      <CallbackComponent />
-      <hr />
-      <ReducerComponent/>
+      <NavBar/>
+      
+      <Routes>
+        <Route path='/' element={<LandingPage></LandingPage>}></Route>
+        <Route path='/contact' element={<Contacto></Contacto>}></Route>
+        <Route path='/settings' element={<Ajustes></Ajustes>}></Route>
+        <Route path='/payment' element={<Pago></Pago>}></Route>
+        <Route path='/*' element={<Navigate to={'/'}/>}></Route>
+      </Routes>
     </>
   )
 }

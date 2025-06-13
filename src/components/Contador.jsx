@@ -15,9 +15,9 @@ export const Contador = () => {
   return (
     <>
     <h1>(Contador.jsx): {valor}</h1>
-    <button className="boton" onClick={sumar}>+1</button>
-    <button className="boton" onClick={restar}>-1</button>
-    <button className="boton" onClick={manejarClick}>Apretar para ver algo</button>
+    <button className="btn btn-primary" onClick={sumar}>+1</button>
+    <button className="btn btn-primary" onClick={restar}>-1</button>
+    <button className="btn btn-primary" onClick={manejarClick}>Apretar para ver algo</button>
     </>
   )
 }

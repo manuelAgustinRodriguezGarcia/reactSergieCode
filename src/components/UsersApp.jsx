@@ -14,7 +14,7 @@ export const  UsersApp = () => {
     <>
       <h1>Lista de usuarios:(UsersApp.jsx)</h1>
       <UserList endpoint={endpointValor}></UserList>
-      <button onClick={handleFetch}>Ver Comentarios</button>
+      <button className="btn btn-primary" onClick={handleFetch}>Ver Comentarios</button>
     </>
   )
 }

@@ -1,5 +1,10 @@
 * {
   color: #fff;
+  margin: 0 50px;
+}
+
+html {
+  margin: 0;
 }
 
 .title {
@@ -10,18 +15,8 @@
 
 body {
   background-color: black;
-  margin: 0 50px;
 }
 
-.boton {
-  background-color: blue;
-  color: yellow;
-  padding: 20px;
-  width: fit-content;
-  border: none;
-  cursor: pointer;  
-  margin: 0 10px;
-}
 
 .inputsAdd {
   color: black;
@@ -33,4 +28,8 @@ body {
 
 .list-group-item span{
   color: black;
+}
+
+.navbar {
+  margin: 0;
 }

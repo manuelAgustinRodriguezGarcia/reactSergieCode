@@ -8,3 +8,7 @@ export * from './FetchConHook.jsx';
 export * from './CalculosConUseMemo.jsx';
 export * from './CallbackComponent.jsx';
 export * from './ReducerComponent.jsx';
+export * from './NavBar.jsx'
+export * from './pages/Contacto.jsx'
+export * from './pages/Ajustes.jsx'
+export * from './pages/Pago.jsx'
