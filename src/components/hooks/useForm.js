@@ -6,7 +6,7 @@ export const useForm = (initialForm = {}) => {
   const [formState, setFormState] = useState(initialForm)
   
   const onInputChange = ({target}) => { //onInputChange recibe un evento por defecto, se desestructura el target para sacar el name y el value
-    const {name, value} = target //traeme le name y el value (el name es el que le pusimos a cada input [userName, email, password])
+    const {name, value} = target //traeme el name y el value del target(el name es el que le pusimos a cada input [userName, email, password])
     setFormState({
       ...formState,   
       [name]: value  //toma el valor del name donde cambie el input (user | email | password) y lo pone como key, y el value es el valor del input

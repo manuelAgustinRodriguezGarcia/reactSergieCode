@@ -17,7 +17,8 @@ export const FormComponent = () => {
   }
   
   const {formState, userName, email, password, onInputChange} = useForm(initialForm)
-      // userName, email y password ya vienen desestructurados desde el useForm.js con el ...formState
+      // userName, email y password los desestructuro gracias al ...formState que no importa la cantidad de propiedades que tenga el initialForm-
+      //+las voy a poder desestructurar igual
   
   const submitear = (e) => {
     e.preventDefault() 

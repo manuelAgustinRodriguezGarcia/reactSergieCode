@@ -11,9 +11,9 @@ export const ReducerComponent = () => {
 
 
   //si no le paso un stat incial vas a tomar a initialState
-  const tareaReducer = (state = initialState, action = {}) => {
+  const tareaReducer = (state = initialState, action = {}) => {//creo el reducer al que le paso un estado inicial y una accion
     //si no le paso un action, toma un action vacio {}
-    switch (action.type) {
+    switch (action.type) {//este type lo aclaro cada vez que paso algo yo, podria llamarse action.queHace, type no es una palabra reservada
       case '[TAREAS] Agregar tarea':
         return [...state, action.payload]//agarra el state anterior y le agrega el payload que le pasemos
 
@@ -35,33 +35,43 @@ export const ReducerComponent = () => {
       default: return state
     }
   }
-                                              //reducer  -  estado inicial
-  const [tareasState, dispatch] = useReducer(tareaReducer, initialState) //reducer
-    //estado que devuelve - dispatch es lo que usas dsps para enviar el action(type y el payload) al reducer y con esa informacion el reducer puede hacer lo que necesite como:
-    //-agregar una tarea (tomando el payload y agregandolo al state original)
-    //-eliminarla (usando el id y haciendo un filter)
-    //-marcar como finalizada(toma el id, busca el mismo id en el state, lo trae con todas sus propiedades(...) y le cambia la propiedad finalizada)
-    //- en resetear manda un payload vacio porque es indiferente los datos para borrar TODO, pero el accion es el activador para que devuelva un array vacio
+                                               //reducer  -  estado inicial
+  const [tareasState, sendAction] = useReducer(tareaReducer, initialState)
+  //sendAction es dispatch(podria ser cualquier nombre pero por convencion es dispatch)
+  //estado que devuelve - dispatch es lo que usas dsps para enviar el action(type y el payload) al reducer y con esa informacion el reducer puede hacer lo que necesite como:
+  //-agregar una tarea (tomando el payload y agregandolo al state original)
+  //-eliminarla (usando el id y haciendo un filter)
+  //-marcar como finalizada(toma el id, busca el mismo id en el state, lo trae con todas sus propiedades(...) y le cambia la propiedad finalizada)
+  //-resetear, manda un payload vacio porque es indiferente los datos para borrar TODO, pero el accion es el activador para que devuelva un array vacio
+
 
   const { tarea, formState, onInputChange } = useForm({ tarea: '' })
+  //formState y onInputChange de useForm.js(custom hook) para usarlo cuando cree una tarea nueva,
+  //tarea se crea por el spread del formstate del useForm
+  //si yo pusiera useForm({tarea: '', fechaDeInicio: '', fechaDeFin: ''}) podria acceder a const {tarea, fechaDeInicio, fechaDeFin}
+  //y dsps podria usar formState.tarea || formState.fechaDeFin || formState.fechaDeInicio
 
+  //cuando escribo useForm({lo que sea}) lo estoy pasando como el modelo que va a tener el form
 
-//metodo para agregar tarea
+  //metodo para agregar tarea
   const agregarTareaDesdeForm = (event) => {
     if (formState.tarea == '') return
     event.preventDefault()
+
     const tarea = {//crea la nueva tarea
       id: new Date().getTime(),
       tarea: formState.tarea,
       finalizada: false
     }
+
     const accion = {
-      type: '[TAREAS] Agregar tarea',
+      type: '[TAREAS] Agregar tarea',//type podria llamarse de cualquier manera mientras en el switch diga lo mismo
       payload: tarea//manda la nueva tarea como payload
     }
-    dispatch(accion)
+    sendAction(accion)
   }
-//metodo para finalizar tarea (marcar como finalizada)
+
+  //metodo para finalizar tarea (marcar como finalizada)
   const finalizarTarea = ({ id, finalizada, tarea }) => {//desestructuro el item que me pasa para utilizar sus propiedades 
     console.log("Informacion que recibo del checkbox: " + id + " | " + tarea + " | " + finalizada)
 
@@ -69,16 +79,17 @@ export const ReducerComponent = () => {
       type: '[TAREAS] Finalizar tarea',
       payload: id//mando el id en el payload para usarlo en el switch
     }
-    dispatch(accion)
+    sendAction(accion)
   }
-//metodo para eliminar tarea
-  const eliminarTarea = ({id}) => {
+
+  //metodo para eliminar tarea
+  const eliminarTarea = ({ id }) => {
     console.log("Informacion recibida desde el boton: id -" + id)
     const accion = {
       type: '[TAREAS] Eliminar tarea',
       payload: id
     }
-    dispatch(accion)
+    sendAction(accion)
   }
 
   const reset = () => {
@@ -87,7 +98,7 @@ export const ReducerComponent = () => {
       type: '[TAREAS] Resetear tareas',
       payload: ''
     }
-    dispatch(accion)
+    sendAction(accion)
   }
 
   return (
